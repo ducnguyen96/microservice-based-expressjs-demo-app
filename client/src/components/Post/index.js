@@ -3,7 +3,7 @@ const Post = (props) => {
   const [comments, setComments] = useState(props.comments || []);
   const [comment, setComment] = useState("");
   // useEffect(() => {
-  //   fetch(`http://localhost:4001/posts/:${props.id}/comments`, {
+  //   fetch(`http://posts.com/posts/:${props.id}/comments`, {
   //     method: "GET",
   //     headers: { "Content-Type": "application/json" },
   //   })
@@ -16,7 +16,7 @@ const Post = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:4001/posts/:${props.id}/comments`, {
+    fetch(`http://posts.com/posts/:${props.id}/comments`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: comment }),
@@ -41,7 +41,7 @@ const Post = (props) => {
         </ul>
         <p>Comment</p>
         <form
-          action={`http://localhost:4001/posts/:${props.id}/comments`}
+          action={`http://posts.com/posts/:${props.id}/comments`}
           method="POST"
         >
           <input value={comment} onChange={(e) => setComment(e.target.value)} />

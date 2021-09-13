@@ -5,7 +5,7 @@ const PostCreate = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:4000/posts", {
+    fetch("http://posts.com/posts/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: title }),

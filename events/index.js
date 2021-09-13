@@ -15,21 +15,25 @@ app.post("/events", async (req, res) => {
     case "CommentCreated":
     case "PostCreated":
       await Promise.all([
-        axios.post("http://localhost:4002/events", event),
-        axios.post("http://localhost:4003/events", event),
+        axios.post("http://query-clusterip-srv:4002/events", event),
+        axios.post("http://moderation-clusterip-srv:4003/events", event),
       ]).catch((err) => {
         console.log(err);
       });
       break;
     case "CommentModerated":
-      await axios.post("http://localhost:4001/events", event).catch((err) => {
-        console.log(err);
-      });
+      await axios
+        .post("http://comment-clusterip-srv:4001/events", event)
+        .catch((err) => {
+          console.log(err);
+        });
       break;
     case "CommentUpdated":
-      await axios.post("http://localhost:4002/events", event).catch((err) => {
-        console.log(err);
-      });
+      await axios
+        .post("http://query-clusterip-srv:4002/events", event)
+        .catch((err) => {
+          console.log(err);
+        });
       break;
     default:
       break;

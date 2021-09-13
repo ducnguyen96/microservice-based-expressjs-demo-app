@@ -4,7 +4,7 @@ import Post from "../Post";
 const PostList = (props) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4002/posts", {
+    fetch("http://posts.com/posts", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
