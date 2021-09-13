@@ -9,7 +9,10 @@ const PostList = (props) => {
       headers: { "Content-Type": "application/json" },
     })
       .then((data) => data.json())
-      .then((data) => setPosts(data));
+      .then((data) => setPosts(data))
+      .catch((err) => {
+        console.log(err);
+      });
   }, [props.numPost]);
 
   return (

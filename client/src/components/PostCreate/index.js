@@ -14,6 +14,9 @@ const PostCreate = (props) => {
       .then((_) => {
         props.setNumPost(props.numPost + 1);
         setTitle("");
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   return (

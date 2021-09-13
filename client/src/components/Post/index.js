@@ -24,6 +24,9 @@ const Post = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setComments(data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   return (

@@ -33,7 +33,11 @@ app.post("/events", async (req, res) => {
 });
 
 app.listen(4003, async () => {
-  const res = await axios.get("http://event-bus-srv:4005/events");
+  const res = await axios
+    .get("http://event-bus-srv:4005/events")
+    .catch((err) => {
+      console.log(err);
+    });
 
   for (let event of res.data) {
     await handleEvent(event);
